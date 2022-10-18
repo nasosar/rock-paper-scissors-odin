@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:400|Open+Sans:700);
 body {
+  min-height: 100vh;
   margin: 0;
   padding: 2vh;
   /*background-image: linear-gradient(to right, #FAAED9, #EFEFF7,  #28C7A9);*/
@@ -8,11 +9,12 @@ body {
 }
 
 .masterContainer {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4vh;
+  gap: 5vh;
 }
 
 .topsection .toptitles {
@@ -77,6 +79,7 @@ h2 {
   justify-content: flex-start;
   align-items: center;
   color: #3A3B3C;
+  font-size: 2vh;
   background-color: #a972cb;
   padding: 1vh;
   height: 3vh;

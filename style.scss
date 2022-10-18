@@ -23,6 +23,7 @@ $neutralItems: #a972cb;
 
 
 body {
+    min-height: 100vh;
     margin: 0;
     padding: 2vh;
     /*background-image: linear-gradient(to right, #FAAED9, #EFEFF7,  #28C7A9);*/
@@ -31,11 +32,12 @@ body {
 }
 
 .masterContainer {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4vh;
+    gap: 5vh;
 }
 
 .topsection
@@ -93,6 +95,7 @@ h2 {
     justify-content: flex-start;
     align-items: center;
     color: $backgroundColor;
+    font-size: 2vh;
     background-color: $neutralItems;
     padding: 1vh;
     height: 3vh;
