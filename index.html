@@ -4,9 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock, paper, scissors</title>
 </head>
 <body>
-    <script src="game-code.js"></script>
+    <header class="topsection">
+        <div class="toptitles">
+            <h1 class="title">ROCK, PAPER, SCISSORS</h1>
+            <h2 class="subtitle">Let's play: whoever scores 5 points first wins!</h2>
+        </div>
+    </header>
+    
+    <section class="midsection">
+        <div class="boxescontainer">
+            <div class="playbox" id="player">
+                <div class="placeholder" id="playerholder"></div>
+                <div class="socre" id="playerscore"></div>
+            </div>
+            <div class="playbox" id="machine">
+                <div class="placeholder" id="machineholder"></div>
+                <div class="socre" id="machinescore"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bottomsection">
+        <div class="listholder">
+            <ul class="playbtns">
+                <li><button>ROCK</button></li>
+                <li><button>PAPER</button></li>
+                <li><button>SCISSORS</button></li>
+            </ul>
+        </div>
+    </footer>
+    <!-- <script src="game-code.js"></script> -->
 </body>
 </html>
