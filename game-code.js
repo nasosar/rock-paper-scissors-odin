@@ -12,10 +12,40 @@ let result = ""
 let playerScore = 0
 let computerScore = 0
 
-function getPlayerChoice () {
+/*function getPlayerChoice () {
     playerChoice = prompt('Choose rock, paper or scissors').toLowerCase();
     return playerChoice;
+}*/
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+  button.addEventListener('click', e => {
+    playerChoice = (button.id);
+
+    if (playerChoice == 'rock') {
+        button.classList.add('rockpressed');
+    } else if (playerChoice == 'paper') {
+        button.classList.add('paperpressed');
+    } else {
+        button.classList.add('scissorspressed');
+    } 
+
+    game();
+  });
+});
+
+function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    this.classList.remove('rockpressed','paperpressed','scissorspressed');
 }
+
+buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
+
+function getPlayerChoice () {    
+    return playerChoice;
+}
+
+
 
 function getComputerChoice () {
     let randomNumber = Math.random();
@@ -32,6 +62,9 @@ function getComputerChoice () {
 function playRound (playerChoice, computerChoice) {
 
     switch (true) {
+        case (playerChoice == undefined && computerChoice == undefined):
+            result = ("ERROR!");
+            break;
         case (playerChoice == "rock" && computerChoice == "scissors"):
             result = ('You win! Rock beats Scissors!');
             break;
@@ -62,23 +95,28 @@ function playRound (playerChoice, computerChoice) {
 }
 
 function game() {
-    while (computerScore < 5 && playerScore < 5) {
-        getPlayerChoice ();
+   /* while (computerScore < 5 && playerScore < 5) {
+        getPlayerChoice (); */
         getComputerChoice ();
+        /* AQUI: FUNÇAO DE DISPLAY DA IMAGEM DO JOGADOR*/
         playRound (playerChoice, computerChoice);
-
-        if (result.includes('win')) {
+        /* AQUI: FUNÇÃO DO DISPLAY DA IMAGEM DO COMPUTADOR */
+        if (computerScore == 5 || playerScore == 5) {
+            gameOver();
+        } else if (result.includes('win')) {
             playerScore += 1;
         } else if (result.includes('lose')){
             computerScore += 1;
         }
-
+        /*AQUI: FUNÇÃO QUE MOSTRA PONTOS*/
+        /*AQUI FUNÇÃO QUE TROCA A FRASE DO TOPO PELO RESULTADO */
         console.log ('You chose ' + playerChoice + '.');
         console.log ('Your opponent chose ' + computerChoice + '.');
         console.log (result);
         console.log ('Your score: ' + playerScore)
         console.log ('Opponent\'s score: ' + computerScore)
-    }
+        console.log ('');
+    /*}*/
 
     return playerScore, computerScore;
 }
@@ -92,8 +130,7 @@ function gameOver() {
 }
 
 
-console.log ("Let's begin. First player to score 5 points wins!");
+/*console.log ("Let's begin. First player to score 5 points wins!");
 game();
 console.log('FINAL SCORES: YOU ' + playerScore + ' vs OPPONENT ' + computerScore);
-gameOver();
-
+gameOver(); */

@@ -130,6 +130,12 @@ button {
 .rock:hover{
     background-color: $rockColor;
     color: $backgroundColor;
+    cursor: pointer;
+}
+
+.rockpressed {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px $rockColor;
 }
 
 .paper {
@@ -141,6 +147,12 @@ button {
 .paper:hover{
     background-color: $paperColor;
     color: $backgroundColor;
+    cursor: pointer;
+}
+
+.paperpressed {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px $paperColor;
 }
 
 .scissors {
@@ -152,4 +164,11 @@ button {
 .scissors:hover{
     background-color: $scissorsColor;
     color: $backgroundColor;
+    cursor: pointer;
 }
+
+.scissorspressed {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px $scissorsColor;
+}
+

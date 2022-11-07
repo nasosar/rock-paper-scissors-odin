@@ -114,6 +114,12 @@ button {
 .rock:hover {
   background-color: #ef6eae;
   color: #3A3B3C;
+  cursor: pointer;
+}
+
+.rockpressed {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ef6eae;
 }
 
 .paper {
@@ -125,6 +131,12 @@ button {
 .paper:hover {
   background-color: #ffa260;
   color: #3A3B3C;
+  cursor: pointer;
+}
+
+.paperpressed {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ffa260;
 }
 
 .scissors {
@@ -136,4 +148,10 @@ button {
 .scissors:hover {
   background-color: #19bc8b;
   color: #3A3B3C;
+  cursor: pointer;
+}
+
+.scissorspressed {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #19bc8b;
 }/*# sourceMappingURL=style.css.map */
