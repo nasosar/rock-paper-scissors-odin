@@ -3,7 +3,6 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 2vh;
-  /*background-image: linear-gradient(to right, #FAAED9, #EFEFF7,  #28C7A9);*/
   background-color: #3A3B3C;
   font-family: "Oswald", Sans-serif;
 }
@@ -28,12 +27,12 @@ body {
 h1 {
   display: flex;
   justify-content: center;
-  font-size: 4vh;
+  font-size: 4.5vh;
   color: #3A3B3C;
   background-color: #a972cb;
   border-radius: 8px;
   padding: 1vh;
-  width: 45vh;
+  width: 50vh;
   margin: 0;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -41,7 +40,7 @@ h1 {
 h2 {
   display: flex;
   font-weight: 400;
-  font-size: 2.2vh;
+  font-size: 2.5vh;
   color: #a972cb;
   margin: 0;
   text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -69,9 +68,12 @@ h2 {
 }
 
 .placeholder {
-  background-color: #3A3B3C;
   height: 25vh;
   width: 20vh;
+}
+
+.ocult {
+  opacity: 0;
 }
 
 .score {
@@ -154,4 +156,37 @@ button {
 .scissorspressed {
   transform: scale(1.1);
   box-shadow: 0 0 15px #19bc8b;
+}
+
+.finalContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+
+.btnPlayAgain {
+  background-color: #3A3B3C;
+  font-family: "Oswald", Sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  min-width: 12vh;
+  font-size: 2vh;
+  padding: 1vh;
+  border-radius: 4px;
+  border: 0.3vh solid #a972cb;
+  color: #a972cb;
+  transition: 0.3s;
+}
+
+.btnPlayAgain:hover {
+  background-color: #a972cb;
+  color: #3A3B3C;
+  cursor: pointer;
+}
+
+.btnPlayAgainpressed {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #a972cb;
 }/*# sourceMappingURL=style.css.map */

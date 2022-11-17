@@ -26,7 +26,6 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 2vh;
-    /*background-image: linear-gradient(to right, #FAAED9, #EFEFF7,  #28C7A9);*/
     background-color: $backgroundColor;
     font-family: "Oswald", Sans-serif;       
 }
@@ -49,12 +48,12 @@ body {
 h1 {
     display: flex;
     justify-content: center;
-    font-size: 4vh;
+    font-size: 4.5vh;
     color: $backgroundColor;
     background-color: $neutralItems;
     border-radius: 8px;
     padding: 1vh;
-    width: 45vh;
+    width: 50vh;
     margin: 0;
     box-shadow: $boxShadow;
 }
@@ -62,7 +61,7 @@ h1 {
 h2 {
     display: flex;
     font-weight: 400;
-    font-size: 2.2vh;
+    font-size: 2.5vh;
     color: $neutralItems;
     margin: 0;
     text-shadow: $boxShadow;
@@ -85,9 +84,12 @@ h2 {
 }
 
 .placeholder {
-    background-color: $backgroundColor;
     height: 25vh;
     width: 20vh;
+}
+
+.ocult {
+    opacity: 0;
 }
 
 .score {
@@ -172,3 +174,34 @@ button {
     box-shadow: 0 0 15px $scissorsColor;
 }
 
+//Styling the game over page
+
+.finalContainer {
+    height: 100vh;
+    @include flexColumn();
+    gap: 2vh;
+}
+
+.btnPlayAgain {
+    background-color: $backgroundColor;
+    font-family:"Oswald", Sans-serif;
+    box-shadow: $boxShadow;
+    min-width: 12vh;
+    font-size: 2vh;
+    padding: 1vh;
+    border-radius: 4px;
+    border: .3vh solid $neutralItems;
+    color: $neutralItems;
+    transition: 0.3s;
+}
+
+.btnPlayAgain:hover{
+    background-color: $neutralItems;
+    color: $backgroundColor;
+    cursor: pointer;
+}
+
+.btnPlayAgainpressed {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px $neutralItems;
+}
