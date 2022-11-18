@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+    <script src="https://kit.fontawesome.com/4c536a6bd5.js" defer crossorigin="anonymous"></script>
     <title>Rock, paper, scissors</title>
 </head>
 <body>
@@ -29,7 +31,7 @@
             </div>
         </section>
 
-        <footer class="bottomsection">
+        <section class="bottomsection">
             <div class="listholder">
                 <ul class="playbtns">
                     <li><button class="rock" id="rock">ROCK</button></li>
@@ -37,8 +39,17 @@
                     <li><button class="scissors" id="scissors">SCISSORS</button></li>
                 </ul>
             </div>
-        </footer>
+        </section>
     </div>
+
+    <footer class="footer">
+        <p class="copyRight">Copyright ©
+            <script>
+              document.write(new Date().getFullYear())
+            </script>
+            Natasha Sosa R &nbsp</p>
+        <a href="https://github.com/nasosar" target="_blank" class="a-icon"><i class="fab fa-github"></i></a>
+    </footer>
    <script src="game-code.js"></script>
 </body>
 </html>

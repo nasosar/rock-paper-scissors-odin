@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:400|Open+Sans:700);
+@import url(https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
 
 $backgroundColor: #3A3B3C; 
 $boxPrimaryColor: #686A6C;
@@ -7,6 +8,7 @@ $rockColor: #ef6eae;
 $paperColor: #ffa260;
 $scissorsColor: #19bc8b;
 $neutralItems: #a972cb;
+$darkerGrey: #1f1f1f;
 
 @mixin flexColumn {
     display: flex;
@@ -23,15 +25,34 @@ $neutralItems: #a972cb;
 
 
 body {
-    min-height: 100vh;
     margin: 0;
-    padding: 2vh;
+    padding: 0;
     background-color: $backgroundColor;
-    font-family: "Oswald", Sans-serif;       
+    font-family: "Oswald";  
+    display: flex;
+    flex-direction: column;  
 }
 
+.footer {
+    @include flexRow();
+    height: 10vh;
+    background-color: $backgroundColor;
+    color: lightgrey;
+    font-size: 2.2vh;
+    font-weight: 300;
+}
+
+.fa-github {
+    color: lightgrey;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+  }
+
 .masterContainer {
-    min-height: 100vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -177,31 +198,128 @@ button {
 //Styling the game over page
 
 .finalContainer {
-    height: 100vh;
+    height: 90vh;
     @include flexColumn();
-    gap: 2vh;
 }
 
+.finalresult {
+    letter-spacing: 3px;
+}
 .btnPlayAgain {
     background-color: $backgroundColor;
     font-family:"Oswald", Sans-serif;
     box-shadow: $boxShadow;
-    min-width: 12vh;
+    width: 20vh;
     font-size: 2vh;
+    font-weight: 600;
     padding: 1vh;
+    margin-top: 10vh;
     border-radius: 4px;
-    border: .3vh solid $neutralItems;
-    color: $neutralItems;
     transition: 0.3s;
 }
 
-.btnPlayAgain:hover{
-    background-color: $neutralItems;
+.btnWinner {
+    border: .3vh solid $rockColor;
+    color: $rockColor;
+}
+
+.btnLoser {
+    border: .3vh solid lightgray;
+    color: lightgray;
+}
+
+.btnWinner:hover{
+    border: .3vh solid $backgroundColor;
     color: $backgroundColor;
     cursor: pointer;
+    background-image: linear-gradient(
+        90deg,
+        $neutralItems 0%,
+        $rockColor 25%,
+        $paperColor 50%,
+        $scissorsColor 75%,
+        $neutralItems 100%
+      );
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      animation: textclip 2.5s linear infinite;
+      display: inline-block;
+}
+
+.btnLoser:hover {
+    border: .3vh solid $backgroundColor;
+    color: $backgroundColor;
+    cursor: pointer;
+    background-image: linear-gradient(
+        90deg,
+        white 0%,
+        lightgrey 25%,
+        grey 50%,
+        lightgrey 75%,
+        white 100%
+      );
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      animation: textclip 2.5s linear infinite;
+      display: inline-block;
 }
 
 .btnPlayAgainpressed {
     transform: scale(1.1);
     box-shadow: 0 0 15px $neutralItems;
 }
+
+.animate-charcter {
+  font-weight: 800; 
+  font-size: 4vh; 
+  background-image: linear-gradient(
+    -225deg,
+    $neutralItems 0%,
+    $rockColor 25%,
+    $paperColor 50%,
+    $scissorsColor 75%,
+    $neutralItems 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.animate-lost {
+    font-weight: 800; 
+    font-size: 4vh; 
+    background-image: linear-gradient(
+      -225deg,
+      white 0%,
+      lightgrey 25%,
+      grey 50%,
+      lightgrey 75%,
+      white 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+  }
+
+

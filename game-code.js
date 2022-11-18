@@ -1,10 +1,4 @@
-/* CHECK! computer will choose a weapon randomly 
-CHECK! when player inputs its chosen weapon
-CHECK! the program compares the weapons statings that rock beats scissors, scissors beats paper and paper beats rock
-CHECK! comparison will return who won the round, if weapons are the same, it's a tie
-CHECK! and add up 1 point to the winners score counter. if its a tie, nothing is added
-CHECK! repeat process until either player or computer get to score = 5
-CHECK! when game ends, state the winner */ 
+
 
 let computerChoice = ""
 let playerChoice = ""
@@ -12,11 +6,7 @@ let result = ""
 let playerScore = 0
 let computerScore = 0
 
-/*function getPlayerChoice () {
-    playerChoice = prompt('Choose rock, paper or scissors').toLowerCase();
-    return playerChoice;
-}*/
-
+/*When a button is clicked, it makes the player choice and calls the game function*/
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
   button.addEventListener('click', e => {
@@ -34,6 +24,7 @@ buttons.forEach((button) => {
   });
 });
 
+/*Aditional functions regarding the buttons effects*/
 function removeTransition(e) {
     if (e.propertyName !== 'transform') return;
     this.classList.remove('rockpressed','paperpressed','scissorspressed');
@@ -46,7 +37,7 @@ function getPlayerChoice () {
 }
 
 
-
+/*In game: this function gets the computer choice*/
 function getComputerChoice () {
     let randomNumber = Math.random();
     if (randomNumber <= 0.33) {
@@ -59,6 +50,7 @@ function getComputerChoice () {
     return computerChoice;
 }
 
+/*In game: this function shows the players choice on the UI*/
 function displayPlayerChoice () {
     const playerDisplay = document.querySelector('#imgPlayer');
 
@@ -73,6 +65,7 @@ function displayPlayerChoice () {
     } 
 }
 
+/*In game: this function shows the machines choice on the UI*/
 function displayMachineChoice () {
     const machineDisplay = document.querySelector('#imgMachine');
 
@@ -87,12 +80,13 @@ function displayMachineChoice () {
     } 
 }
 
+/*In game: this function shows the score counts on the UI*/
 function showScore () {
     document.querySelector('#playerscore').innerHTML = ('YOU: ' + playerScore);
     document.querySelector('#machinescore').innerHTML= ('MACHINE: ' + computerScore);
 }
 
-
+/*In game: this function verifies who wins the round and returns the result*/
 function playRound (playerChoice, computerChoice) {
 
     switch (true) {
@@ -128,68 +122,48 @@ function playRound (playerChoice, computerChoice) {
     return result;
 }
 
+/*In game: this function show the result on the UI*/
 function resultPhrase () {
     document.querySelector('.subtitle').innerHTML = result;
 }
 
-// FIX THE FUCTION TO CHANGE THE PLACEHOLDER TEXT 
+/*In game: this function changes the page to the one of the game over pages when someone scores 5 points*/
 function gameOver() {
     document.location.href='game-over-page/index.html';
-    testfunction ();
-    const resultPhrase = document.getElementById('finalresult');
-    console.log (resultPhrase);
-    console.log ('olar');
 
-    if (playerScore == 5) {
-        document.querySelector('#finalresult').innerHTML = 'YOU BEAT THEM, YAY :)';
-        console.log ("Yay! You beat them, congrats :)");
+    if (playerScore > computerScore) {
+        document.location.href='you-win-page/index.html';
     } else {
-        document.querySelector('#finalresult').innerHTML = 'OH NO, YOU LOST :(';
-        console.log ("Oh no, you lost this time :(");
+        document.location.href='you-lose-page/index.html';
     }
 }
 
-function testfunction () {
-    document.querySelector('.finalresult').innerHTML = 'FINGE QUE É UMA SEMENTE';
-}
 
-
+/*This function makes the game happen :) */
 function game() {
-        getComputerChoice ();
-        /* AQUI: FUNÇAO DE DISPLAY DA IMAGEM DO JOGADOR*/
-        displayPlayerChoice ();
-        playRound (playerChoice, computerChoice);
-        /* AQUI: FUNÇÃO DO DISPLAY DA IMAGEM DO COMPUTADOR */
-        displayMachineChoice (); 
-        
-        if (computerScore == 4 || playerScore == 4) {
-            gameOver();
-        } else if (result.includes('WIN')) {
-            playerScore += 1;
-        } else if (result.includes('LOSE')){
-            computerScore += 1;
-        };
 
-        /*AQUI: FUNÇÃO QUE MOSTRA PONTOS*/
-        showScore ();
-        /*AQUI FUNÇÃO QUE TROCA A FRASE DO TOPO PELO RESULTADO */
-        resultPhrase ();
+    getComputerChoice ();
 
-        console.log ('You chose ' + playerChoice + '.');
-        console.log ('Your opponent chose ' + computerChoice + '.');
-        console.log (result);
-        console.log ('Your score: ' + playerScore)
-        console.log ('Opponent\'s score: ' + computerScore)
-        console.log ('');
-    /*}*/
+    displayPlayerChoice ();
 
+    playRound (playerChoice, computerChoice);
+
+    displayMachineChoice ();
+
+    if (result.includes('WIN')) {
+        playerScore += 1;
+    } else if (result.includes('LOSE')){
+        computerScore += 1;
+    }
+
+    showScore ();
+
+    resultPhrase ();
+
+    if (computerScore == 5 || playerScore == 5) {
+        setTimeout(gameOver, 200);
+    }
+  
     return playerScore, computerScore;
 }
 
-
-
-
-/*console.log ("Let's begin. First player to score 5 points wins!");
-game();
-console.log('FINAL SCORES: YOU ' + playerScore + ' vs OPPONENT ' + computerScore);
-gameOver(); */
